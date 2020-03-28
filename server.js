@@ -15,16 +15,8 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// const databaseUrl = process.env.MONGODB_URI || "notetaker";
-// const collections = ["notes"];
 
-// const db = mongojs(databaseUrl, collections);
-
-// db.on("error", error => {
-//   console.log("Database Error:", error);
-// });
-
-mongoose.connect("mongodb://localhost/budget", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
