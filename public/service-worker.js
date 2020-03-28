@@ -37,7 +37,7 @@ self.addEventListener("activate", (evt) => {
 });
 
 self.addEventListener("fetch", function(evt) {
-    if (evt.request.url.includes("/api/")) {
+    if (evt.request.url.includes("/")) {
       evt.respondWith(
           caches.open(CACHE_NAME).then(cache => {
             return cache.match(evt.request).then(response => {
