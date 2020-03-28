@@ -3,7 +3,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -14,6 +14,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
+
+// const databaseUrl = process.env.MONGODB_URI || "notetaker";
+// const collections = ["notes"];
+
+// const db = mongojs(databaseUrl, collections);
+
+// db.on("error", error => {
+//   console.log("Database Error:", error);
+// });
 
 mongoose.connect("mongodb://localhost/budget", {
   useNewUrlParser: true,
